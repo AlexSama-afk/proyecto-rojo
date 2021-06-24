@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/5e37b371e7.js" crossorigin="anonymous"></script>
+    <!-- tailwind css -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="header">
+        <header class="menu" id="hamburguesa">
+            <span class="menu-hamburguesa"><i class="fas fa-bars"></i></span>
+        </header>
+        <nav class="menu-abierto no-display" id="menu">
+            <a href="#" id="menu-close">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+            </a>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Iniciar Sesion
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Registrarse
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="buscar">
+        <input 
+            class="buscador"
+            type="text" 
+            id="textoBuscador" 
+            placeholder="Buscar..."
+        >
+        <div class="container tags">
+            <div class="tag">
+                <span>
+                    Electronica
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Smartphones
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Laptop
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Tablets
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Smartwatch
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
