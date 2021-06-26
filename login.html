@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/5e37b371e7.js" crossorigin="anonymous"></script>
+    <!-- tailwind css -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="header">
+        <header class="menu" id="hamburguesa">
+            <span class="menu-hamburguesa"><i class="fas fa-bars"></i></span>
+        </header>
+        <nav class="menu-abierto no-display" id="menu">
+            <a href="#" id="menu-close">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+            </a>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        Iniciar Sesion
+                    </a>
+                </li>
+                <li>
+                    <a href="registro.html">
+                        Registrarse
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="login" id="contenido">
+        <div class="titulo">
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <form class='form' action="get">
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input type="email">
+            </div>
+            <div class="input-control">
+                <label for="pass">Password</label>
+                <input type="password">
+            </div>
+            <input type="submit" value="Aceptar" class="btn-submit">
+        </form>
+    </div>
+
+    <script src="script/main.js"></script>
+</body>
+</html>

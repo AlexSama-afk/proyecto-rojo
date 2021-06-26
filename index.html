@@ -29,12 +29,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="login.html">
                         Iniciar Sesion
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="registro.html">
                         Registrarse
                     </a>
                 </li>
@@ -42,8 +42,8 @@
         </nav>
     </div>
 
-    <div class="buscar">
-        <input 
+    <div class="buscar no-display" id="contenido">
+        <input  
             class="buscador"
             type="text" 
             id="textoBuscador" 
@@ -78,6 +78,64 @@
         </div>
     </div>
 
-    <script src="script/script.js"></script>
+    <div class="resultados">
+        <h2>Resultados de Telefono X</h2>
+        <div class="productos">
+            <div class="producto">
+                <div class="producto-header">
+                    <div class="oferta">
+                        <span>¡Oferta!</span>
+                    </div>
+
+                    <div class="btn-deseados">
+                        <span>+</span>
+                    </div>
+                </div>
+                <span class="img-producto">
+                    <img src="img/51wPu6Z989L.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Imagen del producto equisde">
+                </span>
+                <div class="producto-info">
+                    <span class="nombre">Telefono X</span>
+                    <span class="precio precio-anterior">$1000</span>
+                    <span class="precio ">$1000</span>
+                    <span class="tienda">
+                        <img src="img/Amazon-Logo.png" alt="Imagen de la tienda jijijij">
+                    </span>
+                </div>
+                <span class="btn">
+                    <a class="btn-producto">
+                        Ver Producto
+                    </a>
+                </span>
+            </div>
+            <div class="producto">
+                <div class="producto-header no-oferta">
+                    <div class="btn-deseados">
+                        <span>+</span>
+                    </div>
+                </div>
+                <span class="img-producto">
+                    <img src="img/51wPu6Z989L.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Imagen del producto equisde">
+                </span>
+                <div class="producto-info">
+                    <span class="nombre">Telefono X</span>
+                    <span class="precio ">$1000</span>
+                    <span class="tienda">
+                        <img src="img/mercado-libre-imagen-corporativa-mercadolibre.jpg_759710130.jpg" alt="Imagen de la tienda jijijij">
+                    </span>
+                </div>
+                <span class="btn">
+                    <a class="btn-producto">
+                        Ver Producto
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="script/main.js"></script>
+    <script src="script/buscador.js"></script>
 </body>
 </html>
