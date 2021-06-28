@@ -73,7 +73,7 @@ function renderProductos(productos) {
   productos.forEach(producto => {             
     productoss = producto
       htmlProducto += `
-          <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2">                
+          <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-3">                
               <div class="tile is-parent" name="btn-agregar">
                   <div class="btn-deseados" id-data="${producto.id}" onClick="eliminarProducto(this)">
                       <span >-</span>
