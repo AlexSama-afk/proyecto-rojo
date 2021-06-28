@@ -1,71 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/5e37b371e7.js" crossorigin="anonymous"></script>
-    <!-- tailwind css -->
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <!-- css -->
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    
-    <div class="header">
-        <header class="menu" id="hamburguesa">
-            <span class="menu-hamburguesa"><i class="fas fa-bars"></i></span>
-        </header>
-        <nav class="menu-abierto no-display" id="menu">
-            <a href="#" id="menu-close">
-                <span class="menu-close"><i class="fas fa-times"></i></span>
-            </a>
-            <ul>
-                <li>
-                    <a href="index.html">
-                        Inicio
-                    </a>
-                </li>
-                <li>
-                    <a href="login.html">
-                        Iniciar Sesion
-                    </a>
-                </li>
-                <li>
-                    <a href="registro.html">
-                        Registrarse
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="login" id="contenido">
-        <div class="titulo">
-            <h1>Registrarse</h1>
-        </div>
-        <form class='form' action="get">
-            <div class="input-control">
-                <label for="nombre">nombre</label>
-                <input type="text" id="nombre">
-            </div>
-            <div class="input-control">
-                <label for="apellido">Apellidos</label>
-                <input type="text" id="apellido">
-            </div>
-            <div class="input-control">
-                <label for="email">Email</label>
-                <input type="email" id="email">
-            </div>
-            <div class="input-control">
-                <label for="pass">Password</label>
-                <input type="password" id="password">
-            </div>
-        </form>
-    </div>
-
-    <script src="script/main.js"></script>
-</body>
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Registro</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+	</head>
+	<body>
+		<section class="hero is-warning is-fullheight">
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<div class="column is-4 is-offset-4">
+						<h3 class="title has-text-black">Iniciar Sesión</h3>
+						<hr class="login-hr">
+						<div class="box">
+							<figure class="avatar is-inline-block">
+								<img src="./img/perfil.png" class="image is-128x128">
+							</figure>
+							<form id="CuadroRegistro">
+								<div class="field">
+									<div class="control">
+										<input class="input is-large" for="fname" placeholder="Nombre" autofocus="" name="nombre" pattern="[A-Za-z]{5,30}" title="A-z" >
+									</div>
+								</div>
+								<div class="field">
+									<div class="control">
+										<input class="input is-large" type="lname" placeholder="Apellido" name="apellido" pattern="[A-Za-z]{5,50}" title="A-z" >
+									</div>
+								</div>								
+								<div class="field">
+									<div class="control">
+										<input class="input is-large" type="email" placeholder="Email" name="email">
+									</div>
+								</div>
+								<div class="field">
+									<div class="control">
+										<input class="input is-large" type="password" placeholder="Password" name="password">
+									</div>
+								</div>
+								<button class="button is-block is-info is-large is-fullwidth">Registrarse  <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+							</form>
+						</div>
+						<p class="has-text-grey">
+							<a href="./inicio.html">Iniciar Sesión</a> &nbsp;·&nbsp;
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="./script/registroUsuario.js"></script>
+	</body>
 </html>
