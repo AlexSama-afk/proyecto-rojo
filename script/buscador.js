@@ -87,7 +87,7 @@ function renderProductos(productos) {
             <div class="producto-info">
                 <span class="title is-5 mb-5">${producto.nombre}</span>
                 <span class="subtitle is-5 mb-2">${producto.precio}</span>
-                <span class="subtitle is-5 mb-2">${producto.tienda}</span>
+                <span class="subtitle is-5 mb-2 is-uppercase">${producto.tienda}</span>
             </div>
             <a class="button bg-orange has-text-white" href='${producto.url}'>
                 Ver Producto

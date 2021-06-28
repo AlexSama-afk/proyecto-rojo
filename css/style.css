@@ -25,6 +25,9 @@ html {
     color: var(--color-principal)!important;
 }
 
+.is-uppercase{
+    text-transform: uppercase;
+}
 
 .menu{
     background-color: var(--color-principal);

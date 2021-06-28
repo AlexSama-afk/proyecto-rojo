@@ -73,7 +73,7 @@ function renderProductos(productos) {
   productos.forEach(producto => {             
     productoss = producto
       htmlProducto += `
-          <div class="column is-10-mobile is-6-tablet is-3-desktop">                
+          <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2">                
               <div class="tile is-parent" name="btn-agregar">
                   <div class="btn-deseados" id-data="${producto.id}" onClick="eliminarProducto(this)">
                       <span >-</span>
@@ -83,15 +83,13 @@ function renderProductos(productos) {
                   <img src="${producto.imagen}" alt="Imagen del producto equisde">
               </figure>
               <div class="producto-info">
-                  <span class="title is-4">${producto.nombre}</span>
-                  <span class="subtitle is-5">$ ${producto.precio}</span>
-                  <span class="subtitle is-6">${producto.tienda}</span>
+                <span class="title is-5 mb-5">${producto.nombre}</span>
+                <span class="subtitle is-5 mb-2">${producto.precio}</span>
+                <span class="subtitle is-5 mb-2 is-uppercase">${producto.tienda}</span>
               </div>
-              <span class="button">
-                  <a class="button" href='${producto.url}'>
-                      Ver Producto
-                  </a>
-              </span>
+              <a class="button bg-orange has-text-white" href='${producto.url}'>
+                  Ver Producto
+              </a>
           </div>  
       `
       
