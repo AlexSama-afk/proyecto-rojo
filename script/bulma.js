@@ -1,17 +1,16 @@
 window.addEventListener('load',()=>{
-    var nav= document.querySelector('#navUsuario')
-    var sesion= document.querySelector('#navCerrar')    
-    
+    botones()
+       
+})
+var sesion= document.querySelector('#navCerrar')    
+var nav= document.querySelector('#navUsuario')
+function botones (){
     if(localStorage.getItem('Token')){
         nav.classList.add('is-hidden')
         sesion.classList.remove('is-hidden')
-    }    
+    } 
+}
+sesion.addEventListener('click',()=>{
+    localStorage.removeItem('Token')  
+    botones()  
 })
-(function () {
-    var burger = document.querySelector('.burger');
-    var menu = document.querySelector('#' + burger.dataset.target);
-    burger.addEventListener('click', function () {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
-    });
-})();
