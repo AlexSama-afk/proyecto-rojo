@@ -1,11 +1,19 @@
-const textoBuscar = document.querySelector('#textoBuscador');
-
-textoBuscar.addEventListener('keypress', function(e){
-    if (e.key === 'Enter'){
-        buscarProducto(textoBuscar.value)
+window.addEventListener('load',()=>{
+    if(!localStorage.getItem('Token')){
+        alert('Para continuar, inicia sesión')
+        window.location.replace('inicio.html')
     }
+})
+const urlAPI = "https://pure-peak-37709.herokuapp.com/"
+const textoBuscar = document.getElementById('formbusqueda');
+
+textoBuscar.addEventListener('submit', function(e){
+    e.preventDefault();
+    buscarProducto(textoBuscar['textoBuscador'].value)
+    
 });
 
+let productosEncontrados ={}
 function buscarProducto(nombre){
     buscar = "https://buscarapicalzado.herokuapp.com/?calzado="+(nombre)
     fetch(buscar,{
@@ -16,19 +24,57 @@ function buscarProducto(nombre){
     .then(r => {
         renderProductos(r)
     })
+    .then(        
+    )
     .catch(err => console.log(err))
 }
 
-function renderProductos(productos) {
-    console.log(productos)
+
+function crearProducto(entrada){
+    encontrado =productosEncontrados.find(x => x.nombre === (entrada.getAttribute("nombre-data")))
+    const {nombre,precio,imagen,tienda,url} = encontrado    
+    fetch(urlAPI,{
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        "Authorization" :localStorage.getItem('Token'),       
+    },
+    "body": JSON.stringify({
+        query :`
+        mutation {
+          crearProducto(
+            producto: {
+              nombre: "${nombre}", 
+              precio: ${parseFloat(precio.substring(1))}, 
+              imagen: "${imagen}", 
+              url: "${url}",
+              tienda: "${tienda}",
+              }){
+            id
+            nombre
+            precio
+          }
+        } `
+        })
+    })
+    .then(
+        console.log("Se agregó el producto con exito")
+    ).catch(err => console.log(err))
+    ;
+  }
+  
+let $contendedor =document.querySelector('#productos')
+
+function renderProductos(productos) {    
     let htmlProducto = ''
+    productosEncontrados = productos
     productos.forEach(producto => {
-        console.log(producto)
+        console.log(producto)        
         htmlProducto += `
-            <div class="producto">
-                <div class="producto-header">
-                    <div class="btn-deseados">
-                        <span>+</span>
+            <div class="producto">                
+                <div class="producto-header" name="btn-agregar">
+                    <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
+                        <span >+</span>
                     </div>
                 </div>
                 <span class="img-producto">
@@ -46,6 +92,7 @@ function renderProductos(productos) {
                 </span>
             </div>  
         `
-    });
+        
+    });    
     document.querySelector('#productos').innerHTML = htmlProducto
 }
