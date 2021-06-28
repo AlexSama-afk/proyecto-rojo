@@ -57,7 +57,13 @@ function eliminarProducto(elemento){
 }
 
 function alerta(){
-  alert("El porducto se eliminó con éxito")
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Se ha eliminado de deseados correctamente',
+    showConfirmButton: false,
+    timer: 1500
+  })
   obtenerDeseados()
 }
 let productoss

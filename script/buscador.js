@@ -1,13 +1,11 @@
-window.addEventListener('load',()=>{
-   
-})
 const urlAPI = "https://pure-peak-37709.herokuapp.com/"
 const textoBuscar = document.getElementById('formbusqueda');
 
 textoBuscar.addEventListener('submit', function(e){
     e.preventDefault();
     buscarProducto(textoBuscar['textoBuscador'].value)
-    
+    document.querySelector('#contenido').classList.toggle('no-display')
+    document.querySelector('#resultados').classList.toggle('no-display')
 });
 let productosEncontrados ={}
 function buscarProducto(nombre){
@@ -42,27 +40,33 @@ function crearProducto(entrada){
     "body": JSON.stringify({
         query :`
         mutation {
-          crearProducto(
+        crearProducto(
             producto: {
-              nombre: "${nombre}", 
-              precio: ${parseFloat(precio.substring(1))}, 
-              imagen: "${imagen}", 
-              url: "${url}",
-              tienda: "${tienda}",
-              }){
+            nombre: "${nombre}", 
+            precio: ${parseFloat(precio.substring(1))}, 
+            imagen: "${imagen}", 
+            url: "${url}",
+            tienda: "${tienda}",
+            }){
             id
             nombre
             precio
-          }
+        }
         } `
         })
     })
     .then(
-        alert("Se agregó el producto con exito")//tal vez algo más bonito
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se ha agregado a deseados correctamente',
+            showConfirmButton: false,
+            timer: 1500
+            })
     ).catch(err => console.log(err))
     ;
-  }
-  
+}
+
 let $contendedor =document.querySelector('#productos')
 
 function renderProductos(productos) {    
@@ -71,27 +75,25 @@ function renderProductos(productos) {
     productos.forEach(producto => {
         // console.log(producto)        
         htmlProducto += `
-          <div class="column is-10-mobile is-6-tablet is-3-desktop">                
-              <div class="tile is-parent" name="btn-agregar">
-                  <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
-                      <span >+</span>
-                  </div>
-              </div>
-              <fugre class="image">
-                  <img src="${producto.imagen}" alt="Imagen del producto equisde">
-              </figure>
-              <div class="producto-info">
-                  <span class="title is-4">${producto.nombre}</span>
-                  <span class="subtitle is-5">${producto.precio}</span>
-                  <span class="subtitle is-6">${producto.tienda}</span>
-              </div>
-              <span class="button">
-                  <a class="button" href='${producto.url}'>
-                      Ver Producto
-                  </a>
-              </span>
-          </div>  
-      `        
+        <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2">                
+            <div class="tile is-parent" name="btn-agregar">
+                <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
+                    <span >+</span>
+                </div>
+            </div>
+            <fugre class="image">
+                <img src="${producto.imagen}" alt="Imagen del producto equisde">
+            </figure>
+            <div class="producto-info">
+                <span class="title is-5 mb-5">${producto.nombre}</span>
+                <span class="subtitle is-5 mb-2">${producto.precio}</span>
+                <span class="subtitle is-5 mb-2">${producto.tienda}</span>
+            </div>
+            <a class="button bg-orange has-text-white" href='${producto.url}'>
+                Ver Producto
+            </a>
+        </div>  
+    `        
     });    
     document.querySelector('#productos').innerHTML = htmlProducto
 }
