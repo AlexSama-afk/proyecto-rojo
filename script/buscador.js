@@ -58,7 +58,7 @@ function crearProducto(entrada){
         })
     })
     .then(
-        console.log("Se agregó el producto con exito")
+        alert("Se agregó el producto con exito")//tal vez algo más bonito
     ).catch(err => console.log(err))
     ;
   }

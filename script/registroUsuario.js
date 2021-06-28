@@ -66,5 +66,5 @@ let form  = document.getElementById('CuadroRegistro');
 form.addEventListener('submit', (event)=>{  
     event.preventDefault();
     email = form.elements['email'].value;password= form.elements['password'].value;nombre=form.elements['nombre'].value;apellido=form.elements['apellido'].value    
-    registrarUsuario(nombre,apellido,password,correo)    
+    registrarUsuario(nombre,apellido,password,email)    
   })

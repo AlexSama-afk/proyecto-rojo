@@ -17,7 +17,7 @@ function obtenerDeseados(){
   },
   "body": JSON.stringify({
       query :`{
-          obtenerProductos{
+        obtenerDeseados{
             nombre,
             usuario,
             tienda,
@@ -31,7 +31,7 @@ function obtenerDeseados(){
   )
 })
   .then(r => r.json())
-  .then(productos => renderProductos(productos.data.obtenerProductos));
+  .then(productos => renderProductos(productos.data.obtenerDeseados));
 }
 
 
