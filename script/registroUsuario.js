@@ -59,18 +59,12 @@ function almacenarToken(resultado){
     //y lo pone en el almacenamiento local para ser llamado cuando se usan otras funciones que lo requieran       
     if (resultado) {
       localStorage.setItem('Token',resultado.token) //si se encotró manden el mensajito de que inició y con esta se agrega el token para manejar la sesión      
-      window.location.replace("./productos.html")
-    }else{
-        form.elements['email'].classList.add('is-danger')
-        form.elements['password'].classList.add('is-danger')
-        let asd =document.getElementById('error');
-        asd.classList.remove('is-hidden')
-    }
+      window.location.replace("./index.html")
+    }    
 }
 let form  = document.getElementById('CuadroRegistro');
 form.addEventListener('submit', (event)=>{  
     event.preventDefault();
-    email = form.elements['email'].value;password= form.elements['password'].value;nombre=form.elements['nombre'].value;apellido=form.elements['apellido'].value
-    console.log(email+password+apellido+nombre)
-    // registrarUsuario(nombre,apellido,password,correo)  
+    email = form.elements['email'].value;password= form.elements['password'].value;nombre=form.elements['nombre'].value;apellido=form.elements['apellido'].value    
+    registrarUsuario(nombre,apellido,password,correo)  
   })

@@ -34,7 +34,7 @@ function almacenarToken(resultado){
     //y lo pone en el almacenamiento local para ser llamado cuando se usan otras funciones que lo requieran       
     if (resultado) {
       localStorage.setItem('Token',resultado.token) //si se encotró manden el mensajito de que inició y con esta se agrega el token para manejar la sesión      
-      window.location.replace("./productos.html")
+      window.location.replace("./index.html")
     }else{
         form.elements['email'].classList.add('is-danger')
         form.elements['password'].classList.add('is-danger')
