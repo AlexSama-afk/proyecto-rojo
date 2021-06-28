@@ -8,6 +8,27 @@ html {
     font-family: 'Open Sans', sans-serif;
 }
 
+input{
+    font-size: 100%!important;
+}
+
+.is-orange{
+    background-color: var(--color-principal)!important;
+}
+
+.bg-orange-01{
+    background-color: rgba(240, 126, 3, 0.15);
+    border-radius: 10px;
+}
+
+.has-text-orange{
+    color: var(--color-principal)!important;
+}
+
+.is-uppercase{
+    text-transform: uppercase;
+}
+
 .no-display {
     display: none
 }
@@ -106,6 +127,7 @@ html {
     color: #ffffff;
     padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .no-oferta {
@@ -132,6 +154,7 @@ html {
     width: 36px;
     height: 36px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .productos{
@@ -270,8 +293,12 @@ html {
     }
 
     .buscador::placeholder{
-        font-size: 32px;
+        font-size: 24px;
         padding: auto 0;
+    }
+
+    .buscador::content{
+        font-size: 22px;
     }
 
     .login {
@@ -297,5 +324,9 @@ html {
 
     .img-producto img {
         width: 30%;
+    }
+
+    .tag span{
+        font-size: 20px;
     }
 }
