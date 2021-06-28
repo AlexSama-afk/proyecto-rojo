@@ -6,59 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/5e37b371e7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />   
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />    
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
     <title>Buscador</title>
 </head>
 <body>    
-<<<<<<< Updated upstream
     <nav class="navbar is-warning" role="navigation" aria-label="main navigation" style="background-color: rgba(240, 126, 3, 0.8);">
-=======
-    <nav class="navbar is-orange" role="navigation" aria-label="main navigation">
->>>>>>> Stashed changes
         <div class="navbar-brand">
-            <a class="navbar-item" href="./index.html">
+          <a class="navbar-item" href="./index.html">
             <img src="./img/buscanding.png" width="112" height="28">
-            </a>
-        
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-            </a>
+          </a>
         </div>
-    
+      
         <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">      
-                <a class="navbar-item" id="deseadoLink" href="./lista-deaseados.html">
-                    Lista de Deseados
-                </a>            
+          <div class="navbar-start">      
+            <a class="navbar-item" id="deseadoLink" href="./lista-deaseados.html">
+              Lista de Deseados
+            </a>            
+          </div>
+      
+          <div class="nav-right nav-menu">
+            <div class="navbar-item" id="navUsuario">
+              <div class="buttons" id="inicio-registro">
+                <button class="button is-primary is-light" href="./inicio.html">
+                  <strong>Iniciar Sesión</strong>
+                </button>
+                <button class="button is-link is-light" href="./registro.html">
+                  Registrarse
+                </button>
+              </div>
             </div>
-        
-            <div class="nav-right nav-menu">
-                <div class="navbar-item" id="navUsuario">
-                    <div class="buttons" id="inicio-registro">
-                        <a class="button is-primary is-light has-text-orange" href="./login.html">
-                            <strong>Iniciar Sesión</strong>
-                        </a>
-                        <a class="button is-link is-light has-text-orange" href="./registro.html">
-                            Registrarse
-                        </a>
-                    </div>
-                </div>
+          </div>
+          <div class="nav-right nav-menu">
+            <div class="navbar-item is-hidden" id="navCerrar">
+              <div class="buttons" id="cerrar">                
+                <a class="button is-danger is-light" href="./index.html">
+                  Cerrar Sesión
+                </a>
+              </div>
             </div>
-            <div class="nav-right nav-menu">
-                <div class="navbar-item is-hidden" id="navCerrar">
-                    <div class="buttons" id="cerrar">                
-                        <a class="button is-danger is-light has-text-orange" href="./index.html">
-                            Cerrar Sesión
-                        </a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-<<<<<<< Updated upstream
       </nav>
     <!-- <div class="header">
         <header class="menu" id="hamburguesa">
@@ -88,9 +83,6 @@
         </nav>
     </div> -->
 
-=======
-    </nav>
->>>>>>> Stashed changes
     <div class="buscar" id="contenido">
         <form id="formbusqueda">
             <input  
@@ -101,11 +93,38 @@
                 name="textoBuscador"
             >
         </form>
+        <div class="container tags">
+            <div class="tag">
+                <span>
+                    Vans
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Nike
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Adidas
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Off White
+                </span>
+            </div>
+            <div class="tag">
+                <span>
+                    Charly
+                </span>
+            </div>
+        </div>
     </div>
-    <section class="section no-display" id="resultados">
+    <section class="section">
       <div class="container has-text-centered">
         <h2 class="title">Resultados: </h2>
-        <div class="columns is-multiline is-centered" id="productos">
+        <div class="columns is-multiline" id="productos">
         </div>
       </div>
     </section>
@@ -115,6 +134,5 @@
     <script src="script/main.js"></script>
     <script src="script/buscador.js"></script>
     <script async type="text/javascript" src="./script/bulma.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

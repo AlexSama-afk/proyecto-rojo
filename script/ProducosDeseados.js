@@ -57,13 +57,7 @@ function eliminarProducto(elemento){
 }
 
 function alerta(){
-  Swal.fire({
-    position: 'top-end',
-    icon: 'error',
-    title: 'Se ha eliminado a la lista de deseados',
-    showConfirmButton: false,
-    timer: 1500
-  });
+  alert("El porducto se eliminó con éxito")
   obtenerDeseados()
 }
 let productoss
@@ -79,7 +73,7 @@ function renderProductos(productos) {
                       <span >-</span>
                   </div>
               </div>
-              <figure class="image">
+              <fugre class="image">
                   <img src="${producto.imagen}" alt="Imagen del producto equisde">
               </figure>
               <div class="producto-info">
@@ -87,9 +81,11 @@ function renderProductos(productos) {
                   <span class="subtitle is-5">$ ${producto.precio}</span>
                   <span class="subtitle is-6">${producto.tienda}</span>
               </div>
-              <a class="button is-orange has-text-white" href='${producto.url}'>
-                  Ver Producto
-              </a>
+              <span class="button">
+                  <a class="button" href='${producto.url}'>
+                      Ver Producto
+                  </a>
+              </span>
           </div>  
       `
       
