@@ -71,28 +71,27 @@ function renderProductos(productos) {
     productos.forEach(producto => {
         // console.log(producto)        
         htmlProducto += `
-            <div class="producto">                
-                <div class="producto-header" name="btn-agregar">
-                    <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
-                        <span >+</span>
-                    </div>
-                </div>
-                <span class="img-producto">
-                    <img src="${producto.imagen}" alt="Imagen del producto equisde">
-                </span>
-                <div class="producto-info">
-                    <span class="nombre">${producto.nombre}</span>
-                    <span class="precio ">${producto.precio}</span>
-                    <span class="tienda">${producto.tienda}</span>
-                </div>
-                <span class="btn">
-                    <a class="btn-producto" href='${producto.url}'>
-                        Ver Producto
-                    </a>
-                </span>
-            </div>  
-        `
-        
+          <div class="column is-10-mobile is-6-tablet is-3-desktop">                
+              <div class="tile is-parent" name="btn-agregar">
+                  <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
+                      <span >+</span>
+                  </div>
+              </div>
+              <fugre class="image">
+                  <img src="${producto.imagen}" alt="Imagen del producto equisde">
+              </figure>
+              <div class="producto-info">
+                  <span class="title is-4">${producto.nombre}</span>
+                  <span class="subtitle is-5">${producto.precio}</span>
+                  <span class="subtitle is-6">${producto.tienda}</span>
+              </div>
+              <span class="button">
+                  <a class="button" href='${producto.url}'>
+                      Ver Producto
+                  </a>
+              </span>
+          </div>  
+      `        
     });    
     document.querySelector('#productos').innerHTML = htmlProducto
 }
