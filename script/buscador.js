@@ -75,7 +75,7 @@ function renderProductos(productos) {
     productos.forEach(producto => {
         // console.log(producto)        
         htmlProducto += `
-        <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2">                
+        <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-2">                
             <div class="tile is-parent" name="btn-agregar">
                 <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
                     <span >+</span>
