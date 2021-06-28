@@ -1,8 +1,5 @@
 window.addEventListener('load',()=>{
-    if(!localStorage.getItem('Token')){
-        alert('Para continuar, inicia sesión')
-        window.location.replace('inicio.html')
-    }
+   
 })
 const urlAPI = "https://pure-peak-37709.herokuapp.com/"
 const textoBuscar = document.getElementById('formbusqueda');
@@ -12,7 +9,6 @@ textoBuscar.addEventListener('submit', function(e){
     buscarProducto(textoBuscar['textoBuscador'].value)
     
 });
-
 let productosEncontrados ={}
 function buscarProducto(nombre){
     buscar = "https://buscarapicalzado.herokuapp.com/?calzado="+(nombre)
@@ -30,7 +26,11 @@ function buscarProducto(nombre){
 }
 
 
-function crearProducto(entrada){
+function crearProducto(entrada){    
+    if(!localStorage.getItem('Token')){
+        alert('Para continuar, inicia sesión')
+        window.location.replace('inicio.html')
+    }
     encontrado =productosEncontrados.find(x => x.nombre === (entrada.getAttribute("nombre-data")))
     const {nombre,precio,imagen,tienda,url} = encontrado    
     fetch(urlAPI,{
@@ -69,7 +69,7 @@ function renderProductos(productos) {
     let htmlProducto = ''
     productosEncontrados = productos
     productos.forEach(producto => {
-        console.log(producto)        
+        // console.log(producto)        
         htmlProducto += `
             <div class="producto">                
                 <div class="producto-header" name="btn-agregar">
