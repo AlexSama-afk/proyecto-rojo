@@ -3,10 +3,7 @@ const textoBuscar = document.getElementById('formbusqueda');
 
 window.addEventListener('load',()=>{
     if(localStorage.getItem('productosE')){
-<<<<<<< HEAD
         // console.log(localStorage.getItem('productosE'))
-=======
->>>>>>> 3a558c5498f457260d02e4cf596e3f86c60ed803
         renderProductos(localStorage.getItem('productosE'))
     }
 })
