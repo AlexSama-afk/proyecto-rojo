@@ -2,8 +2,7 @@ const urlAPI = "https://pure-peak-37709.herokuapp.com/"
 const textoBuscar = document.getElementById('formbusqueda');
 
 window.addEventListener('load',()=>{
-    if(localStorage.getItem('productosE')){
-        // console.log(localStorage.getItem('productosE'))
+    if(localStorage.getItem('productosE')){       
         renderProductos(localStorage.getItem('productosE'))
     }
 })
@@ -83,8 +82,12 @@ function crearProducto(entrada){
 
 let $contendedor =document.querySelector('#productos')
 
-function NoEncontrado(){
-    const htmlProducto =` 
+ment.querySelector('#productos').innerHTML = htmlProducto
+
+function renderProductos(productos) {    
+    let htmlProducto = ''
+    if(productos.length == 0){
+        htmlProducto =` 
     <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-2"> 
         <h2 class="title is-danger">No se encontraron resultados</h2>
     </div>            
@@ -92,14 +95,10 @@ function NoEncontrado(){
     document.querySelector('#contenido').classList.remove('no-display')
     document.querySelector('#resultados').classList.remove('no-display')
     document.querySelector('#productos').innerHTML = htmlProducto
-}
-function renderProductos(productos) {    
-    let htmlProducto = ''
-    if(productos.length == 0){
-        NoEncontrado()
     }else{        
         productosEncontrados = productos
-        localStorage.setItem('productosE',productosEncontrados)
+        localStorage.setItem('productosE',productos)
+        console.log(localStorage.getItem('productosE'))
         productos.forEach(producto => {
             // console.log(producto)        
             htmlProducto += `
