@@ -26,8 +26,7 @@ function buscarProducto(nombre){
     fetch(buscar,{
         method: 'GET',
         dataType: 'json'
-    })
-    
+    })    
     .then(r => r.json())
     .then(r => {
         renderProductos(r)
@@ -82,9 +81,7 @@ function crearProducto(entrada){
 
 let $contendedor =document.querySelector('#productos')
 
-ment.querySelector('#productos').innerHTML = htmlProducto
-
-function renderProductos(productos) {    
+function renderProductos(productos) {        
     let htmlProducto = ''
     if(productos.length == 0){
         htmlProducto =` 
@@ -92,14 +89,12 @@ function renderProductos(productos) {
         <h2 class="title is-danger">No se encontraron resultados</h2>
     </div>            
       `
-    document.querySelector('#contenido').classList.remove('no-display')
-    document.querySelector('#resultados').classList.remove('no-display')
-    document.querySelector('#productos').innerHTML = htmlProducto
     }else{        
         productosEncontrados = productos
         localStorage.setItem('productosE',productos)
         console.log(localStorage.getItem('productosE'))
         productos.forEach(producto => {
+            console.log(producto)
             // console.log(producto)        
             htmlProducto += `
             <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-2">                
