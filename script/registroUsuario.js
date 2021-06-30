@@ -1,5 +1,5 @@
 const url = "https://pure-peak-37709.herokuapp.com/"
-
+let form  = document.getElementById('CuadroRegistro');
 function registrarUsuario(nombre,apellido,password,correo){
     fetch(url,{
         method: 'POST',
@@ -24,13 +24,30 @@ function registrarUsuario(nombre,apellido,password,correo){
   })
   .then(r => r.json())//toma el resultado
   .then(data =>{
-      autenticarUsuario(correo,password)
+      if(data.errors){
+          data.errors[0].message
+          form.elements['email'].classList.add('is-danger')
+          let asd =document.getElementById('error')
+          asd.classList.remove('is-hidden')
+        // Lo iba a poner, pero se me hizo muy invasivo :u
+        //   Swal.fire({
+        //     position: 'top-end',
+        //     icon: 'error',
+        //     title:data.errors[0].message,
+        //     showDenyButton: true,
+        //     showCancelButton: true,
+        //     confirmButtonText: `Intentar de nuevo`,
+        //     denyButtonText: `Registrarse`
+        //     })
+      }else{
+          autenticarUsuario(correo,password)
+      }
   })
   .catch(function(error){
       console.log(error.message)
   })
 }
-  
+
 function autenticarUsuario(email,password){
     fetch(url,{
         method: 'POST',
@@ -62,7 +79,7 @@ function almacenarToken(resultado){
       window.location.replace("./index.html")
     }    
 }
-let form  = document.getElementById('CuadroRegistro');
+
 form.addEventListener('submit', (event)=>{  
     event.preventDefault();
     email = form.elements['email'].value;password= form.elements['password'].value;nombre=form.elements['nombre'].value;apellido=form.elements['apellido'].value    
