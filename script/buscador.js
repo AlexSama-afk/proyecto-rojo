@@ -1,6 +1,11 @@
 const urlAPI = "https://pure-peak-37709.herokuapp.com/"
 const textoBuscar = document.getElementById('formbusqueda');
 
+window.addEventListener('load',()=>{
+    if(localStorage.getItem('productosE')){
+        renderProductos(localStorage.getItem('productosE'))
+    }
+})
 textoBuscar.addEventListener('submit', function(e){
     e.preventDefault();
     buscarProducto(textoBuscar['textoBuscador'].value)
@@ -8,19 +13,30 @@ textoBuscar.addEventListener('submit', function(e){
     document.querySelector('#resultados').classList.toggle('no-display')
 });
 let productosEncontrados ={}
+function errores(response) {
+    if (!response.ok) {
+        NoEncontrado()
+    }else{
+        return response;
+    }
+}
+
 function buscarProducto(nombre){
-    buscar = "https://buscarapicalzado.herokuapp.com/?calzado="+(nombre)
+    buscar ='https://buscarapicalzado.herokuapp.com/?calzado="'+(nombre)+'"'
     fetch(buscar,{
         method: 'GET',
         dataType: 'json'
     })
-    .then(r => r.json())
-    .then(r => {
+    .then(r=> {
+        errores(r)
+        throw console.error((''));
+    })
+    .then(r => {r.json()})
+    .then(r => {        
         renderProductos(r)
     })
-    .then(        
-    )
     .catch(err => console.log(err))
+    
 }
 
 
@@ -63,37 +79,52 @@ function crearProducto(entrada){
             showConfirmButton: false,
             timer: 1500
             })
-    ).catch(err => console.log(err))
+    ).catch(NoEncontrado())
     ;
 }
 
 let $contendedor =document.querySelector('#productos')
 
+function NoEncontrado(){
+    const htmlProducto =` 
+    <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-2"> 
+        <h2 class="title is-danger">No se encontraron resultados</h2>
+    </div>            
+      `
+    document.querySelector('#contenido').classList.remove('no-display')
+    document.querySelector('#resultados').classList.remove('no-display')
+    document.querySelector('#productos').innerHTML = htmlProducto
+}
 function renderProductos(productos) {    
     let htmlProducto = ''
-    productosEncontrados = productos
-    productos.forEach(producto => {
-        // console.log(producto)        
-        htmlProducto += `
-        <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-2">                
-            <div class="tile is-parent" name="btn-agregar">
-                <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
-                    <span >+</span>
+    if(productos.length == 0){
+        NoEncontrado()
+    }else{        
+        productosEncontrados = productos
+        localStorage.setItem('productosE',productosEncontrados)
+        productos.forEach(producto => {
+            // console.log(producto)        
+            htmlProducto += `
+            <div class="column is-10-mobile is-6-tablet is-3-desktop bg-producto mr-2 mb-2">                
+                <div class="tile is-parent" name="btn-agregar">
+                    <div class="btn-deseados" nombre-data="${producto.nombre}" onClick="crearProducto(this)">
+                        <span >+</span>
+                    </div>
                 </div>
-            </div>
-            <fugre class="image">
-                <img src="${producto.imagen}" alt="Imagen del producto equisde">
-            </figure>
-            <div class="producto-info">
-                <span class="title is-5 mb-5">${producto.nombre}</span>
-                <span class="subtitle is-5 mb-2">${producto.precio}</span>
-                <span class="subtitle is-5 mb-2 is-uppercase">${producto.tienda}</span>
-            </div>
-            <a class="button bg-orange has-text-white" href='${producto.url}'>
-                Ver Producto
-            </a>
-        </div>  
-    `        
-    });    
+                <fugre class="image">
+                    <img src="${producto.imagen}" alt="Imagen del producto equisde">
+                </figure>
+                <div class="producto-info">
+                    <span class="title is-5 mb-5">${producto.nombre}</span>
+                    <span class="subtitle is-5 mb-2">${producto.precio}</span>
+                    <span class="subtitle is-5 mb-2 is-uppercase">${producto.tienda}</span>
+                </div>
+                <a class="button bg-orange has-text-white" href='${producto.url}'>
+                    Ver Producto
+                </a>
+            </div>  
+        `        
+        });
+    }
     document.querySelector('#productos').innerHTML = htmlProducto
 }
